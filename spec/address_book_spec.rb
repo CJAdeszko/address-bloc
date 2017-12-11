@@ -56,6 +56,31 @@ RSpec.describe AddressBook do
       end
     end
 
+
+    describe "import from entries_2" do
+      it "imports the 1st entry" do
+        book.import_from_csv("entries_2.csv")
+
+        entry_one = book.entries[0]
+        check_entry(entry_one, "Chris", "123-456-7892", "chris@blocmail.com")
+      end
+
+      it "imports the 2nd entry" do
+        book.import_from_csv("entries_2.csv")
+
+        entry_two = book.entries[1]
+        check_entry(entry_two, "John", "123-456-7890", "john@blocmail.com")
+      end
+
+      it "imports the 3rd entry" do
+        book.import_from_csv("entries_2.csv")
+
+        entry_three = book.entries[2]
+        check_entry(entry_three, "Mike", "123-456-7891", "mike@blocmail.com")
+      end
+    end
+
+
     describe "#add_entry" do
       it "adds only one entry to the address book" do
         book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
