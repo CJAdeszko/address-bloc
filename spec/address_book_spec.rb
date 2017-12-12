@@ -123,6 +123,17 @@ RSpec.describe AddressBook do
       end
     end
 
+    describe "#annihilate_entries" do
+      it "removes all entries from the address book" do
+        book.add_entry('John Wayne', '123.456.7890', 'john.wayne@theduke.com')
+        book.add_entry('John Wayne', '123.456.7890', 'john.wayne@theduke.com')
+        book.add_entry('John Wayne', '123.456.7890', 'john.wayne@theduke.com')
+        expect(book.entries.size).to eq (3)
+
+        book.annihilate_entries
+        expect(book.entries.size).to eq(0)
+      end
+    end
 
     describe "#remove_entry" do
       it "removes only one entry from the address book" do

@@ -23,6 +23,11 @@ class AddressBook
   end
 
 
+  def annihilate_entries
+    @entries = []
+  end
+
+
   def remove_entry(name, phone_number, email)
 
     entries.each_with_index do |entry, index|
